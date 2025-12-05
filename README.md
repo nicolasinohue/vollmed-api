@@ -45,7 +45,7 @@ Funcionalidades principais:
 
 ## 🛠 Tecnologias Utilizadas
 
-* **Java 17+**
+* **Java 21**
 * **Spring Boot 4**
 
   * Web MVC
