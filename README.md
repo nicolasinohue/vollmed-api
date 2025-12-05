@@ -46,7 +46,7 @@ Funcionalidades principais:
 ## 🛠 Tecnologias Utilizadas
 
 * **Java 21**
-* **Spring Boot 4**
+* **Spring Boot 3**
 
   * Web MVC
   * Data JPA
