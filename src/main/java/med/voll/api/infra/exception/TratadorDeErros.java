@@ -27,6 +27,11 @@ public class TratadorDeErros {
         return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
     }
 
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity tratarErro400(HttpMessageNotReadableException ex) {
+        return ResponseEntity.badRequest().build();
+    }
+
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity tratarErroRegraDeNegocio(ValidationException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
