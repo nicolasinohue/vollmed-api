@@ -1,4 +1,4 @@
-package med.voll.api.domain.consulta.validacoes;
+package med.voll.api.domain.consulta.validacoes.agendamento;
 
 import med.voll.api.domain.consulta.ConsultaRepository;
 import med.voll.api.domain.consulta.DadosAgendamentoConsulta;
@@ -10,10 +10,11 @@ public class ValidadorPacienteSemOutraConsultaNoDia implements ValidadorAgendame
     @Autowired
     private ConsultaRepository repository;
 
+    @Override
     public void validar(DadosAgendamentoConsulta dados) {
         var primeiroHorario = dados.data().withHour(7);
         var ultimoHorario = dados.data().withHour(18);
-        var pacientePossuiOutraConsultaNoDia = repository.existsByPacienteIdAndDataBetween(
+        var pacientePossuiOutraConsultaNoDia = repository.existsByPacienteIdAndDataBetweenAndMotivoCancelamentoIsNull(
                 dados.idPaciente(),
                 primeiroHorario,
                 ultimoHorario
